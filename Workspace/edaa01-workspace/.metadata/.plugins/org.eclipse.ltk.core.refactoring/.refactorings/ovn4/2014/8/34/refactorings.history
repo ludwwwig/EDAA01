@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;dequeue&apos; to &apos;ovn5/src&apos;&#x0A;- Original project: &apos;ovn4&apos;&#x0A;- Destination element: &apos;ovn5/src&apos;&#x0A;- Original element: &apos;ovn4/src/dequeue&apos;&#x0A;- Update references to refactored element" description="Move package" destination="=ovn5/src" element1="/src&lt;dequeue" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1408624081351" version="1.0"/>
+</session>

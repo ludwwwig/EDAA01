@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.launching.PREF_DEFAULT_ENVIRONMENTS_XML=
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1372249048903" defaultVMConnector\="">\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\n<vm id\="1372249048903" name\="1.7" path\="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"/>\n</vmType>\n<vmType id\="org.eclipse.jdt.internal.launching.macosx.MacOSXType">\n<vm id\="1.6" name\="JVM 1.6" path\="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"/>\n</vmType>\n</vmSettings>\n
