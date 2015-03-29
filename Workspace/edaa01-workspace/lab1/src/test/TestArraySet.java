@@ -119,4 +119,28 @@ public class TestArraySet {
 		}
 	}
 
+	@Test
+	public final void testMergeSets() {
+		ArraySet<Integer> t = new ArraySet<Integer>();
+		s.add(1);
+		t.add(2);
+		assertTrue("merging two unequal sets returns False", s.addAll(t));
+	}
+	
+	@Test
+	public final void testMergeEmptySets() {
+		ArraySet<Integer> t = new ArraySet<Integer>();
+		assertFalse("merging two empty sets returns True", s.addAll(t));
+	}
+	
+	@Test
+	public final void testMergeEqualSets() {
+		ArraySet<Integer> t = new ArraySet<Integer>();
+		s.add(1);
+		s.add(2);
+		t.add(1);
+		t.add(2);
+		assertFalse("merging two equal sets returns True", s.addAll(t));
+	}
+	
 }
