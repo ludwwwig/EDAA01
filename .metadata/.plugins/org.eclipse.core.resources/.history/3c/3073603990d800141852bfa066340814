@@ -1,0 +1,14 @@
+package testqueue;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+import queue.FifoQueue;
+
+public class TestAppendFifoQueue {
+	@Test
+	public void testAppend() {
+		FifoQueue<Integer> queue1 = new FifoQueue();
+		FifoQueue<Integer> queue2 = new FifoQueue();
+		
+	}
+}

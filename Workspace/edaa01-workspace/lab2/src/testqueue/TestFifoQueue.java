@@ -127,4 +127,18 @@ public class TestFifoQueue {
 		assertTrue("Queue not empty after poll", myIntQueue.isEmpty());
 	}
 
+	@Test(expected=NoSuchElementException.class)
+	public final void testIterator() {
+		myIntQueue.offer(1);
+		myIntQueue.offer(2);
+		Iterator<Integer> itr = myIntQueue.iterator();
+		assertTrue("Head is not 1 at start", 1 == itr.next());
+		assertTrue("Second element is not 2", 2 == itr.next());
+		assertTrue("Iterator does not loop", 1 == itr.next());
+		assertTrue("hasNext returns false for non-empty queue", itr.hasNext());
+		myIntQueue.poll();
+		myIntQueue.poll();
+		assertFalse("hasNext returns true for empty queue", itr.hasNext());
+		itr.next();
+	}
 }

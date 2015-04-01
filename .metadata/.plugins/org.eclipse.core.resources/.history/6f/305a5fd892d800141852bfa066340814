@@ -1,0 +1,30 @@
+package testqueue;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+import queue.FifoQueue;
+
+public class TestAppendFifoQueue {
+	@Test
+	public void testAppend() {
+		FifoQueue<Integer> queue1 = new FifoQueue<Integer>();
+		FifoQueue<Integer> queue2 = new FifoQueue<Integer>();
+		queue1.append(queue2);
+		assertTrue("Queue not empty after appending two empty queues", queue1.poll() == null);
+		queue2.offer(2);
+		queue1.append(queue2);
+		assertTrue("Does not contain the element appended to an empty queue", queue1.poll() == 2);
+		assertTrue("Wrong size of queue after appending 1 element to empty queue", queue1.size() == 1);
+		queue1.offer(3);
+		queue1.append(queue2);
+		assertTrue("Does not contain the element appended to non-empty queue", queue1.poll() == 3);
+		assertTrue("Wrong size of queue after appending empty queue to non-empty queue", queue1.size() == 1);
+		queue1.offer(1);
+		queue2.offer(5);
+		queue1.append(queue2);
+		assertTrue("Does not yield the expected element for first poll after append", queue1.poll() == 1);
+		assertTrue("Does not yield the expected element for second poll after append", queue1.poll() == 5);
+		assertTrue("Does not yield the expected element for third poll after append", queue1.poll() == 1);
+		assertTrue("Wrong size of queue after appending empty queue to non-empty queue", queue1.size() == 2);
+	}
+}
