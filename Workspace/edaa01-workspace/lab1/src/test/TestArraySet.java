@@ -118,5 +118,21 @@ public class TestArraySet {
 			j++;
 		}
 	}
+	@Test
+	public final void testAddAll()
+	{
+		ArraySet <Integer> t = new ArraySet<Integer>();
+		
+		for(int i = 1; i <= 10; i++)
+		{
+			t.add(i);
+			s.add(i*1000);
+		}
+		
+		int previous_size = t.size();
+		t.addAll(s);
+
+		assertEquals("Nya element inte tillagda i t", t.size()-previous_size, 10);
+	}
 
 }

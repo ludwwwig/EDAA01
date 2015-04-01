@@ -10,6 +10,7 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * Constructs a new empty set.
 	 */
 	public ArraySet() {
+		data = new ArrayList<E>();
 
 	}
 
@@ -20,7 +21,11 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return true if the specified element was added
 	 */
 	public boolean add(E x) {
-		return false;
+		if(contains(x))
+			return false;
+		else
+			data.add(x);
+		return true;
 	}
 
 	/** 
@@ -30,7 +35,11 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return true if the set contained the specified element
 	 */
 	public boolean remove(Object x) {	
-		return false;
+		if(contains(x))
+			data.remove(x);
+		else
+			return false;
+		return true;
 	}
 
 	/** 
@@ -38,8 +47,8 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @param 	x the element whose presence is to be tested
 	 * @return	true if this set contains the specified element
 	 */
-	public boolean contains(Object x) {		
-		return false;
+	public boolean contains(Object x) {
+		return data.contains(x);
 	}
 
 
@@ -48,6 +57,8 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return true if this set contains no elements
 	 */
 	public boolean isEmpty() {		
+		if(data.isEmpty())
+			return true;
 		return false;
 	}
 
@@ -56,7 +67,7 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return the number of elements in this set
 	 */
 	public int size() {
-		return 0;
+		return data.size();
 	}
 
 	/** 
@@ -64,7 +75,25 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return an iterator over the elements in this set
 	 */
 	public Iterator<E> iterator() {
-		return null;
+		return data.iterator();
+	}
+	
+	/**
+	* Adds all of the elements in the specified set, for which it is
+	* possible, to this set.
+	* post: all elements, for which it is possible, in the
+	* specified set are added to this set.
+	* @return
+	true if this set changed as a result of the call
+	*/
+	public boolean addAll(SimpleSet<? extends E> s){
+		boolean added = false;
+		for (E e : s)
+			if(!contains(e)){
+				add(e);
+				added = true;
+			}
+		return added;
 	}
 
 }
