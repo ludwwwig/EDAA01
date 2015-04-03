@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestArraySet" project="lab1" tests="11" started="11" failures="0" errors="0" ignored="0">
+  <testsuite name="test.TestArraySet" time="0.146">
+    <testcase name="testOneElementSet" classname="test.TestArraySet" time="0.001"/>
+    <testcase name="testRemoveOneElement" classname="test.TestArraySet" time="0.0"/>
+    <testcase name="testTwoDifferent" classname="test.TestArraySet" time="0.0"/>
+    <testcase name="testEmpty" classname="test.TestArraySet" time="0.0"/>
+    <testcase name="testManyDuplicates" classname="test.TestArraySet" time="0.118"/>
+    <testcase name="testManyDifferent" classname="test.TestArraySet" time="0.006"/>
+    <testcase name="testRemoveSeveral" classname="test.TestArraySet" time="0.016"/>
+    <testcase name="testAddAll" classname="test.TestArraySet" time="0.0"/>
+    <testcase name="testTwoDuplicatesWhereNotAllowed" classname="test.TestArraySet" time="0.0"/>
+    <testcase name="testIterator" classname="test.TestArraySet" time="0.0"/>
+    <testcase name="testRemoveFromEmpty" classname="test.TestArraySet" time="0.003"/>
+  </testsuite>
+</testrun>
