@@ -126,5 +126,15 @@ public class TestFifoQueue {
 		assertTrue("Wrong size after poll", myIntQueue.size() == 0);
 		assertTrue("Queue not empty after poll", myIntQueue.isEmpty());
 	}
+	
+	@Test
+	public final void testIterator() {
+		myIntQueue.offer(1);
+		myIntQueue.offer(2);
+
+		for(Integer i : myIntQueue)
+			System.out.println(i);
+		
+	}
 
 }
