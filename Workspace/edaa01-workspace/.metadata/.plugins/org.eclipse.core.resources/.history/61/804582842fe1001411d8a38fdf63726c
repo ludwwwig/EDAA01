@@ -1,0 +1,37 @@
+package mountain;
+
+import fractal.*;
+
+public class Mountain extends Fractal {
+	Point a, b, c;
+	int iteration;
+	
+	public Mountain(Point a, Point b, Point c){
+		super();
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		iteration = 0;
+	}
+	
+	public String getTitle() {
+		return "Mountain";
+	}
+	
+	public void draw(TurtleGraphics turtle) {
+		turtle.penDown();
+		iteration++;
+		double xAB = b.getX() - a.getX();
+		double xBC = c.getX() - b.getX();
+		double xCA = a.getX() - c.getX();
+		
+		double yAB = b.getY() - a.getY();
+		double yBC = c.getY() - b.getY();
+		double yCA = a.getY() - c.getY();
+		
+		for (int i = 1; i <= iteration; ++i) {
+			turtle.moveTo(a.getX() + i*xAB/(iteration + 1) , a.getY() + i*yAB/(iteration + 1));
+			turtle.forward(10);
+		}
+	}
+}
