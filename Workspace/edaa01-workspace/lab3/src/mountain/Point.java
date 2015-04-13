@@ -2,13 +2,30 @@ package mountain;
 
 public class Point {
 	private double x, y;
+	private Point joint1, joint2;
 
 	/** Constructs and initializes a point at the specified (x,y) location. */
 	public Point(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
-
+	/*
+	public void setJoint(Point joint, boolean index) {
+		if(joint == null)
+			return;
+		if(index)
+			joint1 = joint;
+		else
+			joint2 = joint;
+	}
+	
+	public Point getJoint(boolean index) {
+		if(index)
+			return joint1;
+		else
+			return joint2;
+	}
+	*/
 	/** 
 	 * Returns the x coordinate. 
 	 * @return the x coordinate
