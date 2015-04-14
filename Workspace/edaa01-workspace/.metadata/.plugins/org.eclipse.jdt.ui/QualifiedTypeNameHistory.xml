@@ -2,4 +2,8 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="koch.Koch"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="mountain.Mountain"/>
+<fullyQualifiedTypeName name="mountain.Point"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="mountain.RandomUtilities"/>
 </qualifiedTypeNameHistroy>

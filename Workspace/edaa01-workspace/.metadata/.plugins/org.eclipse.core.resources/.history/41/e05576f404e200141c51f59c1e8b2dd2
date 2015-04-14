@@ -1,0 +1,159 @@
+package mountain;
+import java.lang.Math;
+import java.util.LinkedList;
+
+import fractal.*;
+
+public class Mountain extends Fractal {
+	Point a, b, c;
+	int iteration;
+	double dev;
+	LinkedList<Side> lista;
+	
+	public Mountain(Point a, Point b, Point c, double dev){
+		super();
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		iteration = -1;
+		this.dev = dev;
+		lista = new LinkedList<Side>();
+	}
+	
+	public String getTitle() {
+		return "Mountain";
+	}
+	public void drawTriangle(int iteration, TurtleGraphics turtle, Point a, Point b, Point c) {
+		if (iteration == 0)
+			return;
+
+		Point ab = new Point((a.getX() + b.getX())/2, (a.getY() + b.getY())/2);
+		Point bc = new Point((b.getX() + c.getX())/2, (b.getY() + c.getY())/2);
+		Point ac = new Point((a.getX() + c.getX())/2, (a.getY() + c.getY())/2);
+		turtle.moveTo(ab.getX(), ab.getY());
+		turtle.forwardTo(bc.getX(), bc.getY());
+		turtle.forwardTo(ac.getX(), ac.getY());
+		turtle.forwardTo(ab.getX(), ab.getY());
+
+		drawTriangle(iteration -1, turtle, a, ab, ac);
+		drawTriangle(iteration -1, turtle, b, ab, bc);
+		drawTriangle(iteration -1, turtle, c, ac, bc);
+		drawTriangle(iteration -1, turtle, ab,ac,bc);
+	}
+	public void draw(TurtleGraphics turtle) {
+		/*turtle.moveTo(a.getX(), a.getY());
+		turtle.forwardTo(b.getX(), b.getY());
+		turtle.forwardTo(c.getX(), c.getY());
+		turtle.forwardTo(a.getX(), a.getY());
+		drawTriangle(iteration++, turtle, a, b, c);*/
+		if (iteration++ == 0) {
+			turtle.moveTo(a.getX(), a.getY());
+			turtle.forwardTo(b.getX(), b.getY());
+			turtle.forwardTo(c.getX(), c.getY());
+			turtle.forwardTo(a.getX(), a.getY());
+		} else {
+			secondDraw(iteration, turtle, a, b, c, this.dev);
+		}
+	}
+	public void secondDraw(int iteration, TurtleGraphics turtle, Point a, Point b, Point c, double dev) {
+		if (iteration == 0)
+			return;
+		// AB
+		Point mab = new Point((a.getX() + b.getX())/2, (a.getY() + b.getY())/2 + RandomUtilities.randFunc(dev / 2));
+		Side sa = new Side(a, b, mab);
+		boolean add = true;
+		for(Side s : lista)
+			if (s.Equals(sa)) {
+				sa.m = s.m;
+				lista.remove(s);
+				add = false;
+			}
+		if (add) lista.add(sa);
+		add = true;
+		
+		
+		//BC
+		Point mbc = new Point((b.getX() + c.getX())/2, (b.getY() + c.getY())/2 + RandomUtilities.randFunc(dev / 2));
+		Side sb = new Side(b, c, mbc);
+		for(Side s : lista)
+			if (s.Equals(sb)) {
+				lista.remove(s);
+				sb.m = s.m;
+				add = false;
+			}
+		if (add) lista.add(sb);
+		add = true;
+		
+		//CA
+		Point mca = new Point((a.getX() + c.getX())/2, (a.getY() + c.getY())/2 + RandomUtilities.randFunc(dev / 2));
+		Side sc = new Side(a, c, mca);
+		for(Side s : lista)
+			if (s.Equals(sc)) {
+				lista.remove(s);
+				sc.m = s.m;
+				add = false;
+			}
+		if (add) lista.add(sc);
+		add = true;
+		
+		turtle.moveTo(a.getX(), a.getY());
+		turtle.forwardTo(sa.m.getX(), sa.m.getY());
+		turtle.forwardTo(sc.m.getX(), sc.m.getY());
+		turtle.forwardTo(a.getX(), a.getY());
+		
+		turtle.moveTo(sa.m.getX(), sa.m.getY());
+		turtle.forwardTo(sb.m.getX(), sb.m.getY());
+		turtle.forwardTo(sc.m.getX(), sc.m.getY());
+		turtle.forwardTo(sa.m.getX(), sa.m.getY());
+		
+		turtle.moveTo(b.getX(), b.getY());
+		turtle.forwardTo(sa.m.getX(), sa.m.getY());
+		turtle.forwardTo(sb.m.getX(), sb.m.getY());
+		turtle.forwardTo(b.getX(), b.getY());
+		
+		turtle.moveTo(c.getX(), c.getY());
+		turtle.forwardTo(sb.m.getX(), sb.m.getY());
+		turtle.forwardTo(sc.m.getX(), sc.m.getY());
+		turtle.forwardTo(c.getX(), c.getY());
+		
+		secondDraw(iteration -1, turtle, a, sa.m, sc.m, dev/2);
+		secondDraw(iteration -1, turtle, sa.m, sb.m, sc.m, dev/2);
+		secondDraw(iteration -1, turtle, b, sa.m, sb.m, dev/2);
+		secondDraw(iteration -1, turtle, c, sb.m, sc.m, dev/2);
+	}
+	
+	private class Side {
+		private Point a, b, m;
+		
+		private Side(Point a, Point b, Point m) {
+			this.a = a;
+			this.b = b;
+			this.m = m;
+		}
+		private boolean Equals(Side s) {
+			return ((a == s.a && b == s.b) || (a == s.b && b == s.a));
+		}
+		
+	}
+}
+
+
+/*int lines = (int) Math.pow(2, iteration++);
+double xAB = b.getX() - a.getX();
+double xBC = c.getX() - b.getX();
+double xCA = a.getX() - c.getX();
+
+double yAB = 1*(b.getY() - a.getY());
+double yBC = 1*(c.getY() - b.getY());
+double yCA = 1*(a.getY() - c.getY());
+
+for (int i = 0; i <= lines; ++i) {
+	//Dra tre linjer per iteration
+	turtle.moveTo(a.getX() + i*xAB/(lines) , a.getY() + i*yAB/(lines));
+	turtle.forwardTo(c.getX() + (lines-i)*xCA/(lines), c.getY() + (lines-i)*yCA/(lines));
+	turtle.moveTo(c.getX() + (i)*xCA/(lines) , c.getY() + (i)*yCA/(lines));
+	turtle.forwardTo(b.getX() + (lines-i)*xBC/(lines), b.getY() + (lines-i)*yBC/(lines));
+	turtle.moveTo(b.getX() + i*xBC/(lines) , b.getY() + i*yBC/(lines));
+	turtle.forwardTo(a.getX() + (lines-i)*xAB/(lines), a.getY() + (lines-i)*yAB/(lines));
+
+}*/
