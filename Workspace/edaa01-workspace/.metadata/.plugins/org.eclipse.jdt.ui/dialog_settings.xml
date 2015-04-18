@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
-	<item value="3" key="TypeHierarchyViewPart.orientation"/>
 	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
+	<item value="3" key="TypeHierarchyViewPart.orientation"/>
 	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
@@ -22,13 +22,13 @@
 		<item value="400" key="height"/>
 		<item value="600" key="width"/>
 	</section>
-	<section name="NewClassWizardPage">
-		<item value="false" key="create_constructor"/>
-		<item value="true" key="create_unimplemented"/>
+	<section name="RenameInformationPopup">
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
-	<section name="RenameInformationPopup">
+	<section name="NewClassWizardPage">
+		<item value="false" key="create_constructor"/>
+		<item value="true" key="create_unimplemented"/>
 	</section>
 	<section name="javadoc">
 		<item value="false" key="nodeprecatedlist"/>
@@ -55,8 +55,8 @@
 	<section name="JavadocWizardDialog">
 		<item value="600" key="DIALOG_WIDTH"/>
 		<item value="51" key="DIALOG_Y_ORIGIN"/>
-		<item value="583" key="DIALOG_HEIGHT"/>
 		<item value="395" key="DIALOG_X_ORIGIN"/>
+		<item value="583" key="DIALOG_HEIGHT"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="NewPackageWizardPage">

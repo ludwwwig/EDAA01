@@ -1,0 +1,13 @@
+package bst;
+
+public class Test {
+
+	public static void main(String[] args) {
+		BinarySearchTree<Integer> a = new BinarySearchTree<Integer>();
+		System.out.println(a.add(10));
+		System.out.println(a.add(100));
+		System.out.println(a.add(10))
+		System.out.println(a.size());
+	}
+
+}

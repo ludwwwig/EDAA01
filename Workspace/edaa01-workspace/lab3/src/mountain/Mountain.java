@@ -1,7 +1,6 @@
 package mountain;
-import java.lang.Math;
-import java.util.LinkedList;
 
+import java.util.LinkedList;
 import fractal.*;
 
 public class Mountain extends Fractal {
@@ -61,7 +60,7 @@ public class Mountain extends Fractal {
 		secondDraw(order,turtle, a, b, c, dev);
 	}
 	public void secondDraw(int iteration, TurtleGraphics turtle, Point a, Point b, Point c, double dev) {
-		if (iteration == 0)	{
+		if (iteration <= 0)	{
 			drawTriangle(turtle, a, b, c);
 			return;
 		}
