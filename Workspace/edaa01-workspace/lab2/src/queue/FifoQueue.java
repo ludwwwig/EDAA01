@@ -109,6 +109,8 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 	
 	private class QueueIterator implements Iterator<E> {
 		private QueueNode<E> pos;
+		private int itrSize = size;
+		
 		private QueueIterator() {
 			if(last != null)
 				pos = last.next;
@@ -117,11 +119,12 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 		}
 		
 		public boolean hasNext() {
-			return size != 0;
+			return itrSize > 0;
 		}
 		
 		public E next() {
 			if(hasNext()) {
+				itrSize--;
 				E currentElement = pos.element;
 				pos = pos.next;
 				return currentElement;
