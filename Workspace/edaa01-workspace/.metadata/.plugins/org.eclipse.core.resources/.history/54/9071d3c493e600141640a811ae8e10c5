@@ -1,0 +1,23 @@
+package bst;
+
+public class Test {
+
+	public static void main(String[] args) {
+		BinarySearchTree<Integer> a = new BinarySearchTree<Integer>();
+		
+		System.out.println(a.add(10));
+		a.add(5);
+
+		a.add(7);
+		a.add(10000);
+		a.add(900)
+		a.add(55);
+		a.add(45);
+		a.printTree();
+		System.out.println(a.size());
+		BSTVisualizer abc = new BSTVisualizer("tree", 300,300);
+		abc.drawTree(a);
+		a.rebuild();
+	}
+
+}

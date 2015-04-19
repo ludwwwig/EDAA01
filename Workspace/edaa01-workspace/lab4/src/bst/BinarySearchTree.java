@@ -4,23 +4,17 @@ import bst.BinarySearchTree.BinaryNode;
 
 public class BinarySearchTree<E extends Comparable<? super E>> {
 	BinaryNode<E> root;
-    int size;
     
 	/**
 	 * Constructs an empty binary searchtree.
 	 */
-	public BinarySearchTree() {
-		this.size = 0;
-	}
+	public BinarySearchTree() {}
 
 	/**
 	 * Inserts the specified element in the tree if no duplicate exists.
 	 * @param x element to be inserted
 	 * @return true if the the element was inserted
 	 */
-	public boolean isRootNull () {
-		return root == null;
-	}
 	public boolean add(E x) {
 		if (root == null) {
 			root = new BinaryNode<E>(x);
@@ -91,8 +85,8 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	}
 	private void printTree(BinaryNode<E> node) {
 		if (node != null) {
-			System.out.println(node.element);
 			printTree(node.left);
+			System.out.println(node.element);
 			printTree(node.right);
 		}
 	}
@@ -101,7 +95,13 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	 * Builds a complete tree from the elements in the tree.
 	 */
 	public void rebuild() {
-
+		@SuppressWarnings("unchecked")
+		E[] a = (E[]) new Comparable[this.size()];
+		toArray(root, a, 0); // nu är array:en filled
+		for (E element : a)
+			System.out.println(element);
+		root = null;
+		buildTree(a, 0, a.length-1);
 	}
 	
 	/*
@@ -111,7 +111,11 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	 * position in a).
 	 */
 	private int toArray(BinaryNode<E> n, E[] a, int index) {
-		return 0;
+		if (n == null) return index;
+		int l = toArray(n.left, a, index);
+		a[l++] = n.element;
+		int r = toArray(n.right, a, l);
+		return r;
 	}
 	
 	/*
@@ -120,7 +124,20 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	 * Returns the root of tree.
 	 */
 	private BinaryNode<E> buildTree(E[] a, int first, int last) {
-		return null;
+		int middle = (first + last)/2;
+		if (last - first <= 0) {
+			this.add(a[first]);
+			return null;
+		} else if (last-first == 1){
+			this.add(a[first]);
+			this.add(a[last]);
+			return null;
+		} else {
+			this.add(a[middle]);
+			buildTree(a, first, middle-1);
+			buildTree(a, middle+1, last);
+		}
+		return this.root;
 	}
 	
 
