@@ -100,8 +100,7 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 		toArray(root, a, 0); // nu är array:en filled
 		for (E element : a)
 			System.out.println(element);
-		root = null;
-		buildTree(a, 0, a.length-1);
+		root = buildTree(a, 0, a.length-1);
 	}
 	
 	/*
@@ -114,8 +113,7 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 		if (n == null) return index;
 		int l = toArray(n.left, a, index);
 		a[l++] = n.element;
-		int r = toArray(n.right, a, l);
-		return r;
+		return toArray(n.right, a, l);
 	}
 	
 	/*
@@ -124,20 +122,13 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	 * Returns the root of tree.
 	 */
 	private BinaryNode<E> buildTree(E[] a, int first, int last) {
+		BinaryNode<E> node = null;
+		if (last < first) return null;
 		int middle = (first + last)/2;
-		if (last - first <= 0) {
-			this.add(a[first]);
-			return null;
-		} else if (last-first == 1){
-			this.add(a[first]);
-			this.add(a[last]);
-			return null;
-		} else {
-			this.add(a[middle]);
-			buildTree(a, first, middle-1);
-			buildTree(a, middle+1, last);
-		}
-		return this.root;
+		node = new BinaryNode<E>(a[middle]);
+		node.left = buildTree(a, first, middle-1);
+		node.right = buildTree(a, middle+1, last);
+		return node;
 	}
 	
 
