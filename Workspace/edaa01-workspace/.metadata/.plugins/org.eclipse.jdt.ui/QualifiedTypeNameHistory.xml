@@ -6,4 +6,8 @@
 <fullyQualifiedTypeName name="mountain.Point"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="mountain.RandomUtilities"/>
+<fullyQualifiedTypeName name="map.Map.Entry"/>
+<fullyQualifiedTypeName name="javax.xml.crypto.Data"/>
+<fullyQualifiedTypeName name="map.Map"/>
+<fullyQualifiedTypeName name="map.SimpleHashMap"/>
 </qualifiedTypeNameHistroy>

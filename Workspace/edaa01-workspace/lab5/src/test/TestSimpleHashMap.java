@@ -18,9 +18,9 @@ public class TestSimpleHashMap {
 
 	@Before
 	public void setUp() throws Exception {
-//		m = new SimpleHashMap<Integer, Integer>(10);
-//		m16 = new SimpleHashMap<Integer, Integer>();
-//		s = new SimpleHashMap<String, Integer>();
+		m = new SimpleHashMap<Integer, Integer>(10);
+		m16 = new SimpleHashMap<Integer, Integer>();
+		s = new SimpleHashMap<String, Integer>();
 	}
 
 	@After
@@ -56,6 +56,7 @@ public class TestSimpleHashMap {
 	public final void testDuplicates() {
 		m16.put(1, 1);
 		m16.put(17, 17);
+		
 		assertEquals("wrong put(1, 2):", new Integer(1), m16.put(1, 2));
 		assertEquals("wrong put(17, 18):", new Integer(17), m16.put(17, 18));
 		assertEquals("wrong size():", 2, m16.size());
@@ -108,6 +109,7 @@ public class TestSimpleHashMap {
 	@Test
 	public final void testRemoveOneElement() {
 		m.put(1, 1);
+		
 		assertNull("wrong remove():", m.remove(2));
 		assertEquals("wrong result from remove: 1", new Integer(1), m.remove(1));
 		assertNull("wrong get():", m.get(1));
@@ -158,7 +160,8 @@ public class TestSimpleHashMap {
 			m16.put(r, r);
 			randNbrs.add(r);
 		}
-		for (int i : randNbrs) {			
+		for (int i : randNbrs) {
+			System.out.println(i);
 			assertEquals("key not found in map:" + i, new Integer(i), m16.remove(i));
 		}
 		assertEquals("wrong size():", 0, m16.size());
@@ -191,6 +194,7 @@ public class TestSimpleHashMap {
 		assertEquals("key not found in map: 17", new Integer(1), s.get(new String("def")));
 		assertEquals("key not found in map: 33", new Integer(2), s.get(new String("ghi")));
 		assertEquals("key not found in map: 49", new Integer(3), s.get(new String("jkl")));
+
 	}
 }
 
