@@ -55,7 +55,7 @@ public class SimpleHashMap<K,V> implements Map<K, V> {
 		@SuppressWarnings("unchecked")
 		K k = (K) key;
 		Entry<K,V> result = find(index(k), k);
-		return result == null ? null : result.value;
+		return result == null ? null : result.getValue();
 	}
 
 	@Override
@@ -72,8 +72,8 @@ public class SimpleHashMap<K,V> implements Map<K, V> {
 		int index = index(key);
 		Entry<K,V> entry = find(index, key);
 		if(entry != null) {
-			V oldVal = entry.value;
-			entry.value = value;
+			V oldVal = entry.getValue();
+			entry.setValue(value);
 			return oldVal;
 		} else {
 			if(table[index] != null)
@@ -92,11 +92,17 @@ public class SimpleHashMap<K,V> implements Map<K, V> {
 		int index = index(k);
 		Entry<K,V> entry = find(index, k);
 		if(entry != null) {
+			if(entry.equals(table[index]) && entry.getNext() == null) {
+				V result = entry.getValue();
+				table[index] = null;
+				size--;
+				return result;
+			}
 			if(entry.getNext() != null) {
 				entry.getNext().setNext(table[index]);
 				table[index] = entry.getNext();
 			}
-			V result = entry.value;
+			V result = entry.getValue();
 			System.out.println(result);
 			entry = null;
 			size--;
@@ -182,7 +188,7 @@ public class SimpleHashMap<K,V> implements Map<K, V> {
 
 		@Override
 		public V setValue(V value) {
-			V oldVal = this.value;
+			V oldVal = this.getValue();
 			this.value = value;
 			return oldVal;
 		}
