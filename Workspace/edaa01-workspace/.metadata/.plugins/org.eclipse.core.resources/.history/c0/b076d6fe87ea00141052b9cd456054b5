@@ -1,9 +1,0 @@
-package test;
-
-public class Test {
-
-	public static void main(String[] args) {
-		SimpleHashMap<Integer, Integer> a = new SimpleHashMap<Integer, Integer>();
-	}
-
-}

@@ -60,6 +60,7 @@ public class TestAppendFifoQueue {
 
 		for(Integer i : myIntQueue)
 			System.out.println(i);
+		assertTrue(myIntQueue.size() == 6);
 		System.out.println("appendBothNotEmpty done.");
 		
 	}
@@ -67,12 +68,11 @@ public class TestAppendFifoQueue {
 	@Test
 	public void appendBothEmpty() {
 		System.out.println("appendBothEmpty starting.");
-		
 		myIntQueue.append(yourIntQueue);
-		
-		System.out.println("" + myIntQueue.size());
-		assertEquals("No problem.", myIntQueue.size(), 0);
+		System.out.println(myIntQueue.size());
+		assertTrue(myIntQueue.size() == 0);
 		System.out.println("appendBothEmpty done.");
+		
 	}
 
 }

@@ -24,6 +24,8 @@ public class Test {
 		System.out.println(tree.size());
 		BSTVisualizer abc = new BSTVisualizer("tree", 300,300);
 		abc.drawTree(tree);
+		tree.add(-500);
+		abc.drawTree(tree);
 		
 	}
 

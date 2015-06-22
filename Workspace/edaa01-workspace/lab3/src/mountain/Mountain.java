@@ -78,7 +78,7 @@ public class Mountain extends Fractal {
 		Point mab = new Point((a.getX() + b.getX())/2, (a.getY() + b.getY())/2 + RandomUtilities.randFunc(dev));
 		Side sa = new Side(a, b, mab);
 		boolean add = true;
-		for(Side s : lista)
+		for (Side s : lista)
 			if (s.Equals(sa)) {
 				sa.m = s.m;
 				//lista.remove(s);
@@ -96,6 +96,7 @@ public class Mountain extends Fractal {
 			this.b = b;
 			this.m = m;
 		}
+		
 		private boolean Equals(Side s) {
 			return ((a == s.a && b == s.b) || (a == s.b && b == s.a));
 		}

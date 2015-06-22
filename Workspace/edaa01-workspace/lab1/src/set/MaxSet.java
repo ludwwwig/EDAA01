@@ -23,17 +23,21 @@ public class MaxSet<E extends Comparable<E>> extends ArraySet<E> {
 	public E getMax() {
 		if(isEmpty())
 			throw new NoSuchElementException();
-		else{
-			Iterator<E> itr = iterator();
-			maxElement = itr.next();
-			while(itr.hasNext()){
-				E next = itr.next();
-				if(maxElement.compareTo(next) < 0){
-					maxElement = next;
-				}
-			}
+		return maxElement;
 		}
-		return maxElement;	
+	
+	private void setMax() {
+		if(isEmpty())
+			throw new NoSuchElementException();
+		boolean firstInSet = true;
+		for (E e : this) {
+			if (firstInSet) {
+				maxElement = e;
+				firstInSet = false;
+			}
+			if (e.compareTo(maxElement) > 0)
+				maxElement = e;
+		}
 	}
 	
 	/** 
@@ -47,7 +51,7 @@ public class MaxSet<E extends Comparable<E>> extends ArraySet<E> {
 			return false;
 		super.add(x);
 		if(!isEmpty())
-			getMax();
+			setMax();
 		return true;
 	}
 	
@@ -62,7 +66,7 @@ public class MaxSet<E extends Comparable<E>> extends ArraySet<E> {
 			return false;
 		super.remove(x);
 		if(!isEmpty())
-			getMax();
+			setMax();
 		return true;	
 		
 		}
@@ -76,7 +80,7 @@ public class MaxSet<E extends Comparable<E>> extends ArraySet<E> {
 	public boolean addAll(SimpleSet<? extends E> c) {
 		boolean a = super.addAll(c);
 		if(!isEmpty())
-			getMax();
+			setMax();
 		return a;
 	}
 	
