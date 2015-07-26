@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestBankAccount" project="banktest" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="test.TestBankAccount" time="0.004">
+    <testcase name="testWithdraw" classname="test.TestBankAccount" time="0.002"/>
+    <testcase name="testOverDraft" classname="test.TestBankAccount" time="0.001"/>
+    <testcase name="testGetBalance" classname="test.TestBankAccount" time="0.0"/>
+    <testcase name="testDeposit" classname="test.TestBankAccount" time="0.001"/>
+  </testsuite>
+</testrun>

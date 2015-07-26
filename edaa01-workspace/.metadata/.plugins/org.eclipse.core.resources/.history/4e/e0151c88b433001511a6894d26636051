@@ -1,0 +1,23 @@
+package phonebook;
+import javax.swing.*;
+import java.awt.event.*;
+import java.util.List;
+
+public class FindNamesMenu extends JMenuItem implements ActionListener {
+	private PhoneBook phoneBook;
+	private PhoneBookGUI gui;
+	
+	public FindNamesMenu(PhoneBook phoneBook, PhoneBookGUI gui) {
+		super("Find name(s)");
+		this.phoneBook = phoneBook;
+		this.gui = gui;
+		addActionListener(this);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		String number = JOptionPane.showInputDialog("Enter number");
+		List<String> result =  phoneBook.findNames(number);
+		//output text
+	}
+
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestSimpleHashMap" project="lab5" tests="14" started="14" failures="0" errors="0" ignored="0">
+  <testsuite name="test.TestSimpleHashMap" time="0.001">
+    <testcase name="testDuplicates" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testGetInEmptyMap" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testManyPutAndGet" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testRemoveOneElement" classname="test.TestSimpleHashMap" time="0.001"/>
+    <testcase name="testRemoveNonExistingElements" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testGet" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testEmpty" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testSize" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testPutSameHashCode" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testRemoveInEmptyMap" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testManyPutAndRemove" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testNegative" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testPutInEmptyMap" classname="test.TestSimpleHashMap" time="0.0"/>
+    <testcase name="testStringKeys" classname="test.TestSimpleHashMap" time="0.0"/>
+  </testsuite>
+</testrun>

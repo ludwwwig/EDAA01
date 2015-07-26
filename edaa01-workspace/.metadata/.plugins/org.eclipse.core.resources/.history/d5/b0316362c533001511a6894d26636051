@@ -1,0 +1,29 @@
+package phonebook;
+import javax.swing.*;
+
+import java.awt.event.*;
+
+
+public class QuitButton extends JButton implements ActionListener {
+	private PhoneBook phoneBook;
+	private PhoneBookGUI gui;
+
+	public QuitButton(PhoneBook phoneBook, PhoneBookGUI gui) {
+		super("Quit");
+		this.phoneBook = phoneBook;
+		this.gui = gui;
+		addActionListener(this);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		int choice = JOptionPane.showConfirmDialog(gui, 
+				"Would you like to save?",
+				"Save",
+				JOptionPane.YES_NO_OPTION);
+		if(choice == JOptionPane.YES_OPTION) {
+			String fileName = JOptionPane.showInputDialog("Please enter a name.");
+			phoneBook.writeData(fileName);
+		}
+		System.exit(0);
+	}
+}

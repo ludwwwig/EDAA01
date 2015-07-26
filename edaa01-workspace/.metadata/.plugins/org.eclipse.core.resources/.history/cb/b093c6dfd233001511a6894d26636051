@@ -1,0 +1,26 @@
+package phonebook;
+import java.util.*;
+
+public class Test_PhoneBook {
+	public static void main(String[] args) {
+		PhoneBook p = new PhoneBook();
+		p.put("Zertil", "085-z");
+		p.put("Antony", "070-a");
+		p.put("Bertil", "071-b");
+		p.put("Bertil", "085-q");
+		p.put("Antony", "072-a");
+		p.put("Dertil", "085-q");
+		p.put("Antony", "085-q");
+		p.put("Antony", "070-a");
+		p.put("Cecilia", "071-b");
+		p.put("Cecilia", "071-b");
+		
+		for(String s : p.names()) {
+			System.out.println(s);
+		}
+		/*for(String s : p.findNumber("Antony")) {
+			System.out.println(s);
+		}*/
+		
+	}
+}
